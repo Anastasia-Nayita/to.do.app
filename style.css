@@ -10,44 +10,57 @@
 body {
   font-family: "Josefin Sans", sans-serif;
   font-size: 18px;
+  background: hsl(0, 0%, 98%);
 }
 .card {
   position: absolute;
-  margin: 5% 30%;
+  margin: 5% 31%;
+  width: 37%;
 }
 .title {
   color: white;
   letter-spacing: 1rem;
-  width: 144%;
+  width: 100%;
   margin-bottom: 10%;
 }
 .title img {
-  margin-left: 59%;
+  margin-left: 57%;
+}
+.new-task {
+  margin-bottom: 2%;
 }
 .new-task__txt {
-  width: 144%;
-  height: 8vh;
+  width: 100%;
+  height: 9vh;
   border-radius: 5px;
   border: none;
+  padding-left: 16%;
 }
 
+.tasks-list__i .round,
 .round {
   position: relative;
 }
 
+.tasks-list__i .round label,
 .round label {
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 50%;
   cursor: pointer;
   height: 28px;
-  left: 0;
+  left: 5%;
   position: absolute;
-  top: 0;
+  top: 2.5vh;
+
   width: 28px;
 }
+.round label {
+  left: 5%;
+  top: -6vh;
+}
 
-.round label:after {
+.tasks-list__i .round label:after {
   border: 2px solid #fff;
   border-top: none;
   border-right: none;
@@ -61,16 +74,42 @@ body {
   width: 12px;
 }
 
+.tasks-list__i .round input[type="checkbox"],
 .round input[type="checkbox"] {
   visibility: hidden;
 }
 
-.round input[type="checkbox"]:checked + label {
+.tasks-list__i .round input[type="checkbox"]:checked + label {
   background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+text-decoration: line-through;
+color: hsl(236, 33%, 92%);
 }
 
-.round input[type="checkbox"]:checked + label:after {
+.tasks-list__i .round input[type="checkbox"]:checked + label:after {
   opacity: 1;
+}
+
+.tasks-list__i .round input[type="checkbox"]:checked + .task-list__txt{
+  /* text-decoration: line-through; */
+  color: red;
+}
+
+.tasks-list__i {
+  background: white;
+  width: 100%;
+  height: 8vh;
+  border-radius: 5px;
+  border: none;
+  border-bottom: solid thin hsl(236, 33%, 92%);
+}
+.task-list__txt{
+  padding-top: 20%;
+  padding-left: 190%;
+}
+.card__footer {
+  color: hsl(236, 33%, 92%);
+  background: white;
+  width: 100%;
 }
 
 .attribution {

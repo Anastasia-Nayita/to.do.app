@@ -10,6 +10,7 @@
 body {
   font-family: "Josefin Sans", sans-serif;
   font-size: 18px;
+  font-weight: 400;
   background: hsl(0, 0%, 98%);
 }
 .card {
@@ -22,9 +23,12 @@ body {
   letter-spacing: 1rem;
   width: 100%;
   margin-bottom: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .title img {
-  margin-left: 57%;
+  height: 100%;
 }
 .new-task {
   margin-bottom: 2%;
@@ -35,6 +39,9 @@ body {
   border-radius: 5px;
   border: none;
   padding-left: 16%;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  color: hsl(236, 9%, 61%);
 }
 
 .tasks-list__i .round,
@@ -81,17 +88,12 @@ body {
 
 .tasks-list__i .round input[type="checkbox"]:checked + label {
   background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-text-decoration: line-through;
-color: hsl(236, 33%, 92%);
+  text-decoration: line-through;
+  color: hsl(236, 33%, 92%);
 }
 
 .tasks-list__i .round input[type="checkbox"]:checked + label:after {
   opacity: 1;
-}
-
-.tasks-list__i .round input[type="checkbox"]:checked + .task-list__txt{
-  /* text-decoration: line-through; */
-  color: red;
 }
 
 .tasks-list__i {
@@ -102,14 +104,26 @@ color: hsl(236, 33%, 92%);
   border: none;
   border-bottom: solid thin hsl(236, 33%, 92%);
 }
-.task-list__txt{
+.task-list__txt {
   padding-top: 20%;
   padding-left: 190%;
 }
 .card__footer {
-  color: hsl(236, 33%, 92%);
+  height: 5vh;
+  color: hsl(236, 9%, 61%);
   background: white;
+  display: flex;
+  font-size: 0.9rem;
   width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-around;
+}
+.card__footer__states {
+  display: flex;
+  justify-content: space-around;
+  gap: 10%;
 }
 
 .attribution {

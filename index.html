@@ -23,10 +23,11 @@
     <img src="./images/bg-desktop-light.jpg" class="bg" alt="bg" />
     <div class="card">
       <div class="title">
-        <h1>TODO <img src="./images/icon-moon.svg" alt="icon-moon" /></h1>
+        <h1>TODO</h1>
+        <img src="./images/icon-moon.svg" alt="icon-moon" />
       </div>
       <div class="new-task">
-        <input class="new-task__txt" type="text" />
+        <input class="new-task__txt" type="text" placeholder="Create new todo..."/>
         <div class="round">
           <input id="checkbox" type="checkbox" />
           <label for="checkbox"> </label>
@@ -38,9 +39,12 @@
           <div id="dynamic-num"></div>
           items left
         </h4>
-        <h4 class='all'>All</h4>
-        <h4>Active</h4>
-        <h4>Completed</h4>
+        <div class="card__footer__states">
+          <h4 class="all">All</h4>
+          <h4>Active</h4>
+          <h4>Completed</h4>
+        </div>
+
         <h4>Clear Completed</h4>
       </div>
     </div>

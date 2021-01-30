@@ -2,7 +2,8 @@
   margin: 0;
   box-sizing: border-box;
 }
-.bg {
+.bg,
+.bg.dark-theme {
   position: absolute;
   z-index: -1;
 }
@@ -12,6 +13,10 @@ body {
   font-size: 18px;
   font-weight: 400;
   background: hsl(0, 0%, 98%);
+}
+
+body.dark-theme {
+  background: hsl(237, 14%, 26%);
 }
 .card {
   position: absolute;
@@ -89,7 +94,7 @@ body {
 .tasks-list__i .round input[type="checkbox"]:checked + label {
   background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
   text-decoration: line-through;
-  color: hsl(236, 33%, 92%);
+  color: hsl(233, 11%, 84%);
 }
 
 .tasks-list__i .round input[type="checkbox"]:checked + label:after {
@@ -112,6 +117,7 @@ body {
   height: 5vh;
   color: hsl(236, 9%, 61%);
   background: white;
+  border-radius: 5px;
   display: flex;
   font-size: 0.9rem;
   width: 100%;
@@ -124,6 +130,21 @@ body {
   display: flex;
   justify-content: space-around;
   gap: 10%;
+}
+
+.use-comment {
+  font-weight: 400;
+  font-size: 0.9rem;
+  margin: 10% 30%;
+  color: hsl(236, 9%, 61%);
+}
+
+.i-all {
+  color: hsl(220, 98%, 61%);
+}
+.i-clear,
+.i-left {
+  font-weight: 400;
 }
 
 .attribution {

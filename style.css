@@ -16,7 +16,7 @@ body {
 }
 
 body.dark-theme {
-  background: hsl(237, 14%, 26%);
+  background: hsl(235, 21%, 11%);
 }
 .card {
   position: absolute;
@@ -49,13 +49,20 @@ body.dark-theme {
   color: hsl(236, 9%, 61%);
 }
 
+body.dark-theme .new-task__txt,
+body.dark-theme .tasks-list__i,
+body.dark-theme .card__footer,
+body.dark-theme .tasks-list__i .round label,
+body.dark-theme .round label {
+  background: hsl(237, 14%, 26%);
+}
+
 .tasks-list__i .round,
 .round {
   position: relative;
 }
 
-.tasks-list__i .round label,
-.round label {
+.tasks-list__i .round label {
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 50%;
@@ -91,6 +98,14 @@ body.dark-theme {
   visibility: hidden;
 }
 
+body.dark-theme label#label:hover {
+  border: thin solid;
+}
+
+body.dark-theme .tasks-list__i input[type="checkbox"]:checked + label {
+  color: hsl(234, 11%, 52%);
+}
+
 .tasks-list__i .round input[type="checkbox"]:checked + label {
   background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
   text-decoration: line-through;
@@ -101,6 +116,17 @@ body.dark-theme {
   opacity: 1;
 }
 
+body.dark-theme label#label:hover {
+  border: double 1px transparent;
+  background-image: linear-gradient(hsl(237, 14%, 26%), hsl(237, 14%, 26%)), linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+body.dark-theme .tasks-list__i {
+  border-bottom: solid thin hsl(233, 14%, 35%);
+}
+
 .tasks-list__i {
   background: white;
   width: 100%;
@@ -109,6 +135,11 @@ body.dark-theme {
   border: none;
   border-bottom: solid thin hsl(236, 33%, 92%);
 }
+
+body.dark-theme label {
+  color: hsl(234, 39%, 85%);
+}
+
 .task-list__txt {
   padding-top: 20%;
   padding-left: 190%;

@@ -6,6 +6,15 @@ const body = $("body");
 const bg = $(".bg");
 let myHtml = "";
 let i = 0;
+
+$(window).on("load", function () {
+  for (j = 0; j > 0; j++) {
+    j++;
+    //console.log(j);
+    tasksList.html(localStorage.getItem("myHtmlStored" + `${j}`));
+  }
+});
+
 newTaskInp.on("keypress", function (e) {
   if (e.which === 13 && newTaskInp.val() !== "") {
     i++;
@@ -19,6 +28,15 @@ newTaskInp.on("keypress", function (e) {
       "</div></label></div></div>";
     myHtml += addedTask;
     tasksList.html(myHtml);
+    try {
+      localStorage.setItem("myHtmlStored" + `${i}`, myHtml);
+      // console.log(
+      //   "local storage: ",
+      //   localStorage.getItem("myHtmlStored" + `${i}`)
+      // );
+    } catch (e) {
+      console.log("What a nuisance");
+    }
     newTaskInp.val("");
     iLeft.html(i + " items left");
   }

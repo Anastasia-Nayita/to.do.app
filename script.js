@@ -18,8 +18,6 @@ $(window).on("load", function () {
     i = Number(lastIndex) + 1; // you need to update i so as to update your item left. You need to add 1, remember your index starts from 0. NOTE: you might need to change this when you update your click event to calculate items left
     iLeft.html(i + " items left");
   }
-
-  
 });
 
 newTaskInp.on("keypress", function (e) {
@@ -59,6 +57,16 @@ newTaskInp.on("keypress", function (e) {
       i++;
       iLeft.html(i + " items left");
     }
+    // console.log(myHtml);
+
+    // $("input").on("click", function (e) { // you need to fix this, I realised this is working on the input text area, and not on the radio buttons
+    //   if ($(this).is(":checked") && i !== 0) {
+    //     i--;
+    //     iLeft.html(i + " items left");
+    //   } else {
+    //     i++;
+    //     iLeft.html(i + " items left");
+    //   }
   });
 });
 

@@ -7,15 +7,34 @@ const bg = $(".bg");
 let myHtml = "";
 let oldTasks = "";
 let i = localStorage.length;
-$(window).on("load", function () {
-  let lastIndex = localStorage.getItem("lastIndex");
 
-  // check if it exists
+setDarkTheme = () => {
+  themeIcon.attr("src", "./images/icon-sun.svg");
+  //bg.attr("src", "./images/bg-desktop-dark.jpg");
+};
+
+setLightTheme = () => {
+  themeIcon.attr("src", "./images/icon-moon.svg");
+ // bg.attr("src", "./images/bg-desktop-light.jpg");
+};
+
+$(window).on("load", function () {
+  let theme = localStorage.getItem("theme");
+  if (theme) {
+    if (theme === "dark") {
+      body.addClass("dark-theme");
+      setDarkTheme();
+    }
+    if (theme === "light") {
+      body.remove("dark-theme");
+      setLightTheme();
+    }
+  }
+  let lastIndex = localStorage.getItem("lastIndex");
   if (lastIndex) {
-    // load it if it does exist
     myHtml += localStorage.getItem(`myHtmlStored${lastIndex}`); // noticed I used lastIndex
     tasksList.html(myHtml);
-    i = Number(lastIndex) + 1; // you need to update i so as to update your item left. You need to add 1, remember your index starts from 0. NOTE: you might need to change this when you update your click event to calculate items left
+    i = Number(lastIndex) + 1;
     iLeft.html(i + " items left");
   }
 });
@@ -40,43 +59,57 @@ newTaskInp.on("keypress", function (e) {
     } catch (err) {
       console.log(err);
     }
-
     newTaskInp.val("");
-    console.log(`first items left ${i}`);
-
     iLeft.html(i + " items left");
   }
-
-  $("input").on("click", function (e) {
-    console.log("clicked");
-    if ($(this).is(":checked") && i !== 0) {
-      i--;
-      console.log("i in the checked", i);
-      iLeft.html(i + " items left");
-    } else {
-      i++;
-      iLeft.html(i + " items left");
-    }
-    // console.log(myHtml);
-
-    // $("input").on("click", function (e) { // you need to fix this, I realised this is working on the input text area, and not on the radio buttons
-    //   if ($(this).is(":checked") && i !== 0) {
-    //     i--;
-    //     iLeft.html(i + " items left");
-    //   } else {
-    //     i++;
-    //     iLeft.html(i + " items left");
-    //   }
-  });
 });
+
+/////// working on i count
+// let k=1;
+
+// $("#checkbox "+`${k}`).on("click", function (e) {
+//   if ($(this).is(":checked")) {
+//     console.log('checked')
+//    // i--;
+//    // iLeft.html(i + " items left");
+//   } else {
+//     console.log('unchecked')
+
+//    // i++;
+//     //iLeft.html(i + " items left");
+//   }
+// });
+
+// $(".task-list__txt").on("click", function (e) {
+//   console.log("you clicked");
+// });
+
+// $("#checkbox "+`${k}`).click(function () {
+//   console.log("checked no.1");
+// });
+
+//console.log($("#checkbox 1").prop('checked'));
+
+//$("input").checked(console.log("checked"));
+
+// if ($("#label").prop('checked')) {
+//   console.log("input is checked");
+// }
+
+// var labelID;
+// $("label").click(function () {
+//   console.log("firing");
+//   labelID = $(this).attr("for");
+//   $("#" + labelID).trigger("click");
+//   console.log("label clicked");
+// });
 
 themeIcon.on("click", function () {
   body.toggleClass("dark-theme");
   if (body.hasClass("dark-theme")) {
-    themeIcon.attr("src", "./images/icon-sun.svg");
-    bg.attr("src", "./images/bg-desktop-dark.jpg");
+    setDarkTheme();
+    localStorage.setItem("theme", "dark");
   } else {
-    themeIcon.attr("src", "./images/icon-moon.svg");
-    bg.attr("src", "./images/bg-desktop-light.jpg");
+    localStorage.setItem("theme", "light");
   }
 });

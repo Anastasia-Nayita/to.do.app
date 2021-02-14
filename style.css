@@ -2,10 +2,21 @@
   margin: 0;
   box-sizing: border-box;
 }
-.bg,
+header {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(./images/bg-desktop-light.jpg);
+  padding: 6rem 3.3rem 11.5rem;
+  background-size: cover;
+}
+/* .bg,
 .bg.dark-theme {
   position: absolute;
   z-index: -1;
+} */
+
+body.dark-theme .bg {
+  background-image: url("./images/bg-desktop-dark.jpg");
 }
 
 body {
@@ -20,6 +31,7 @@ body.dark-theme {
 }
 .card {
   position: absolute;
+  top: 2%;
   margin: 5% 31%;
   width: 37%;
 }
@@ -118,7 +130,8 @@ body.dark-theme .tasks-list__i input[type="checkbox"]:checked + label {
 
 body.dark-theme label#label:hover {
   border: double 1px transparent;
-  background-image: linear-gradient(hsl(237, 14%, 26%), hsl(237, 14%, 26%)), linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  background-image: linear-gradient(hsl(237, 14%, 26%), hsl(237, 14%, 26%)),
+    linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
   background-origin: border-box;
   background-clip: content-box, border-box;
 }
@@ -178,7 +191,43 @@ body.dark-theme label {
   font-weight: 400;
 }
 
+.card__footer__states,
+.i-clear {
+  cursor: pointer;
+}
+
 .attribution {
   position: absolute;
   bottom: 5%;
+}
+
+@media screen and (max-width: 375px) {
+  body{
+    font-size: 14px;
+  }
+  .card {
+    position: fixed;
+    margin: 5% 5%;
+    width: 90%;
+  }
+  .bg {
+    padding: 6rem 3.3rem 7.5rem;
+    background: url("./images/bg-mobile-light.jpg");
+  }
+  body.dark-theme .bg {
+    background: url("./images/bg-mobile-dark.jpg");
+  }
+  .new-task {
+    margin-bottom: 5%;
+  }
+  .title {
+    margin-top: 7%;
+    margin-bottom: 10%;
+    letter-spacing: 0.7em;
+    font-size: 1em;
+  }
+  .tasks-list__i .round label{
+    height: 22px;
+    width: 22px;
+  }
 }

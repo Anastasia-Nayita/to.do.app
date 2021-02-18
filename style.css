@@ -5,15 +5,9 @@
 header {
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url(./images/bg-desktop-light.jpg);
+  background-image: url("./images/bg-desktop-light.jpg");
   padding: 6rem 3.3rem 11.5rem;
-  background-size: cover;
 }
-/* .bg,
-.bg.dark-theme {
-  position: absolute;
-  z-index: -1;
-} */
 
 body.dark-theme .bg {
   background-image: url("./images/bg-desktop-dark.jpg");
@@ -44,9 +38,16 @@ body.dark-theme {
   flex-direction: row;
   justify-content: space-between;
 }
-.title img {
-  height: 100%;
+
+#theme-icon {
+  background-image: url("./images/icon-moon.svg");
+  background-repeat: no-repeat;
+  width: 1.6rem;
 }
+body.dark-theme #theme-icon {
+  background-image: url("./images/icon-sun.svg");
+}
+
 .new-task {
   margin-bottom: 2%;
 }
@@ -140,6 +141,10 @@ body.dark-theme .tasks-list__i {
   border-bottom: solid thin hsl(233, 14%, 35%);
 }
 
+.tasks-list__i{
+  opacity: 0;
+}
+
 .tasks-list__i {
   background: white;
   width: 100%;
@@ -191,6 +196,30 @@ body.dark-theme label {
   font-weight: 400;
 }
 
+.i-all,
+.i-completed,
+.i-active {
+  cursor: pointer;
+  padding-bottom: 3%;
+}
+
+.i-all:after,
+.i-completed:after,
+.i-active:after {
+  display: block;
+  content: "";
+  height: 0.2rem;
+  background: #69dbff;
+  transform: scaleX(0.0001);
+  transition: transform 250ms ease-in-out;
+  box-shadow: inset -40px 0px 30px -25px rgb(189 83 233);
+}
+.i-all:hover:after,
+.i-completed:hover:after,
+.i-active:hover:after {
+  transform: scaleX(1);
+}
+
 .card__footer__states,
 .i-clear {
   cursor: pointer;
@@ -202,7 +231,7 @@ body.dark-theme label {
 }
 
 @media screen and (max-width: 375px) {
-  body{
+  body {
     font-size: 14px;
   }
   .card {
@@ -226,7 +255,7 @@ body.dark-theme label {
     letter-spacing: 0.7em;
     font-size: 1em;
   }
-  .tasks-list__i .round label{
+  .tasks-list__i .round label {
     height: 22px;
     width: 22px;
   }

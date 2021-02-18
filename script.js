@@ -1,39 +1,38 @@
 let newTaskInp = $(".new-task__txt");
 const tasksList = $(".tasks-list");
 const iLeft = $(".i-left");
-const themeIcon = $("#theme-icon");
 const body = $("body");
-const bg = $(".bg");
+const themeIcon = $("#theme-icon");
+//const listItem = $('.tasks-list__i'); // fix it. can't access
+const itemsAll = $(".i-all");
+const itemsActive = $(".i-active");
+const itemsCompleted = $(".i-completed");
 let myHtml = "";
 let oldTasks = "";
 let i = localStorage.length;
-
-setDarkTheme = () => {
-  themeIcon.attr("src", "./images/icon-sun.svg");
-  //bg.attr("src", "./images/bg-desktop-dark.jpg");
-};
-
-setLightTheme = () => {
-  themeIcon.attr("src", "./images/icon-moon.svg");
- // bg.attr("src", "./images/bg-desktop-light.jpg");
-};
 
 $(window).on("load", function () {
   let theme = localStorage.getItem("theme");
   if (theme) {
     if (theme === "dark") {
       body.addClass("dark-theme");
-      setDarkTheme();
     }
     if (theme === "light") {
       body.remove("dark-theme");
-      setLightTheme();
     }
   }
   let lastIndex = localStorage.getItem("lastIndex");
   if (lastIndex) {
-    myHtml += localStorage.getItem(`myHtmlStored${lastIndex}`); // noticed I used lastIndex
+    myHtml += localStorage.getItem(`myHtmlStored${lastIndex}`);
     tasksList.html(myHtml);
+    anime({
+      targets: ".tasks-list__i",
+      opacity: 1,
+      translateY: 100,
+      delay: anime.stagger(100, { start: 1000 }),
+      translateY: [-10, 0],
+    });
+
     i = Number(lastIndex) + 1;
     iLeft.html(i + " items left");
   }
@@ -63,6 +62,9 @@ newTaskInp.on("keypress", function (e) {
     iLeft.html(i + " items left");
   }
 });
+
+var current = null;
+
 
 /////// working on i count
 // let k=1;
@@ -107,7 +109,6 @@ newTaskInp.on("keypress", function (e) {
 themeIcon.on("click", function () {
   body.toggleClass("dark-theme");
   if (body.hasClass("dark-theme")) {
-    setDarkTheme();
     localStorage.setItem("theme", "dark");
   } else {
     localStorage.setItem("theme", "light");
